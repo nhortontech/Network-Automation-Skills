@@ -11,3 +11,8 @@ This python framework uses Netmiko and Paramiko libraries to eliminate manual co
 
 This can be used to pull configuration parameters from hundreds of target nodes simultaneously, eliminating configuration errors. 
 
+FILE 2: subnet_calc.py
+
+This Infrastructure Automation Tool utilises the python IP address framework to architect network blocks and dynamically cut classful CIDR blocks (e.g. /16) into /24 security tiers. It calculates boundary metrics such as Network IDs, subnet masks, broadcast ranges and first-usable gateway paths.
+
+Similar to my first script, it maintains strict version control and deployment tracking under Git.
