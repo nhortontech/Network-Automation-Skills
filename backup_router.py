@@ -52,7 +52,7 @@ except Exception as e:
 #     'port': 22,                          # Standard SSH management port
 # }
 
-# print("🚀 Establishing secure encrypted SSH pipeline to Azure Palo Alto Perimeter...")
+# print(" Establishing secure encrypted SSH pipeline to Azure Palo Alto Perimeter...")
 
 # try:
 #     # Open the dynamic transport pipeline across the internet
@@ -62,7 +62,7 @@ except Exception as e:
 #     # 'show system info' pulls serial numbers, uptime, and software versions
 #     output = net_connect.send_command('show system info')
 
-#     print("\n🔥 FIREWALL METRICS RETRIEVED SUCCESSFULLY:")
+#     print("\n FIREWALL METRICS RETRIEVED SUCCESSFULLY:")
 #     print("-" * 60)
 #     print(output)
 #     print("-" * 60)
@@ -71,7 +71,7 @@ except Exception as e:
 #     net_connect.disconnect()
 
 # except SSHException:
-#     print("❌ Security Handshake Failed: SSH configuration dropped by perimeter.")
+#     print(" Security Handshake Failed: SSH configuration dropped by perimeter.")
 # except Exception as e:
-#     print(f"⚠️ Operation Aborted: {str(e)}")
+#     print(f" Operation Aborted: {str(e)}")
 
