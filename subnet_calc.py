@@ -1,7 +1,7 @@
 import ipaddress
 
 def generate_lab_subnets(base_network_str):
-    print(f"⚙️ Parsing Base Network Infrastructure Block: {base_network_str}\n")
+    print(f" Parsing Base Network Infrastructure Block: {base_network_str}\n")
     
     try:
         base_net = ipaddress.ip_network(base_network_str)
@@ -13,7 +13,7 @@ def generate_lab_subnets(base_network_str):
             "10.0.3.0/24": "Trust-Subnet (Inside Secure Linux Workloads)"
         }
         
-        print(f"📝 DESIGN METRICS FOR YOUR AZURE LAB RESILIENCE:")
+        print(f" DESIGN METRICS FOR YOUR AZURE LAB RESILIENCE:")
         print("=" * 65)
         
         for net in subnets[:3]:
@@ -25,7 +25,7 @@ def generate_lab_subnets(base_network_str):
             last_usable = hosts[-1]
             broadcast = net.broadcast_address
             
-            print(f"🎯 Zone Allocation: {purpose}")
+            print(f" Zone Allocation: {purpose}")
             print(f"   🔹 Network ID:      {net.network_address}")
             print(f"   🔹 Subnet Mask:    {net.netmask}")
             print(f"   🔹 Gateway/First:   {first_usable} (Assign to Firewall Interface)")
@@ -34,7 +34,7 @@ def generate_lab_subnets(base_network_str):
             print("-" * 65)
             
     except ValueError as e:
-        print(f"⚠️ Operation Aborted: Invalid CIDR notation format input. {str(e)}")
+        print(f" Operation Aborted: Invalid CIDR notation format input. {str(e)}")
 
 generate_lab_subnets("10.0.0.0/16")
 
@@ -52,7 +52,7 @@ generate_lab_subnets("10.0.0.0/16")
 # from azure.mgmt.network.models import VirtualNetwork, Subnet
 
 # def deploy_azure_network(subscription_id, resource_group, vnet_name, base_network_str):
-#     print(f"🚀 Initializing Live Azure Network Pipeline for block: {base_network_str}")
+#     print(f" Initializing Live Azure Network Pipeline for block: {base_network_str}")
     
 #     try:
 #         # Standardize Authentication using your Azure Login credentials
@@ -87,10 +87,10 @@ generate_lab_subnets("10.0.0.0/16")
         
 #         # Wait for the cloud data center to finish building the infrastructure
 #         async_vnet_creation.wait()
-#         print("✅ SUCCESS: Your Palo Alto network fabric is live in Azure!")
+#         print(" SUCCESS: Your Palo Alto network fabric is live in Azure!")
         
 #     except Exception as e:
-#         print(f"❌ Deployment Aborted: {str(e)}")
+#         print(f" Deployment Aborted: {str(e)}")
 
 # # 🏃‍♂️ RUN ENVIRONMENT CONFIGURATION (Update with your home parameters)
 # AZURE_SUBSCRIPTION_ID = "your-azure-subscription-id-here"
