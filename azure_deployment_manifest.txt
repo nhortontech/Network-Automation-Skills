@@ -1,0 +1,13 @@
+=================================================================
+🚀 AUTOMATED INFRASTRUCTURE MANIFEST COMPILED SUCCESSFULLY
+=================================================================
+Target Resource Group: rg-paloalto-lab
+Target Azure Region:  Australia East
+Firewall Core Compute: Standard_D8as_v7
+
+PLUMBED SUBNET LAYER OVERLAYS:
+-----------------------------------------------------------------
+🔹 nic0 (MGMT):    10.0.1.0/24
+🔹 nic1 (UNTRUST): 10.0.2.0/24
+🔹 nic2 (TRUST):   10.0.3.0/24
+=================================================================
