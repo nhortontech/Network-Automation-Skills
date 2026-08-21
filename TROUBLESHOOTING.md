@@ -18,7 +18,8 @@
 * * **The Issue:** A letter typo during a terminal command created a messy duplicate file missing the letter "n" in its title name.
 * **Resolution:** Executed a direct file system wipe command (`rm subet_calc.py`) and ran a `git rm` command sequence to purge it from your cloud history.
 
-### 📄 main.tf
+# main.tf
+
 * **The Issue:** The corporate web filter blocked binary package downloads from HashiCorp, triggering an HTTP `429 Too Many Requests` error.
 * **Resolution:** Converted the file into a provider-free declarative template and compiled it using a native Python string interpolation script.
 
