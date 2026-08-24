@@ -30,4 +30,11 @@
 * **The Issue:** The corporate web filter blocked binary package downloads from HashiCorp, triggering an HTTP `429 Too Many Requests` error.
 * **Resolution:** Converted the file into a provider-free declarative template and compiled it using a native Python string interpolation script.
 
+# infracost.tf
 
+* **The Issue:** Running standard Terraform validation pipelines at work caused immediate connection timeouts, packet drops, and authentication crashes because your corporate enterprise firewall completely blocks outbound traffic to your personal Azure subscription tenancy.
+* **Resolution:** Reconfigured the provider "azurerm" block with isolation flags (skip_provider_registration = true) to force the engine into a network-isolated, offline-parsing mode that evaluates the local HCL syntax text blocks directly without needing a live cloud ping.
+
+.github/workflows/infracost.yml
+* **The Issue:** The GitHub Actions runner threw a fatal error stating it could not find action.yml or a Dockerfile for the infracost/actions/comment@v3 step because Infracost deprecated and deleted that standalone code subdirectory from their public repository.
+* **Resolution:** Completely stripped out the broken, multi-step code configurations and replaced them with Infracost’s modern, consolidated execution engine step (infracost/actions/diff@v3), which runs the entire pipeline lifecycle natively inside a single execution phase.
