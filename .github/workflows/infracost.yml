@@ -1,0 +1,53 @@
+name: 'Infracost Price Estimator'
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  TF_ROOT: . 
+
+jobs:
+  infracost:
+    name: 'Estimate Costs'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR Branch
+        uses: actions/checkout@v4
+
+      - name: Setup Infracost
+        uses: infracost/actions/setup@v3
+        with:
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+
+      - name: Checkout Baseline Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Generate Infracost Baseline
+        run: |
+          infracost breakdown --path=${{ env.TF_ROOT }} \
+                              --format=json \
+                              --out-file=/tmp/infracost-base.json
+
+      - name: Checkout PR Branch Again
+        uses: actions/checkout@v4
+
+      - name: Generate Infracost Diff
+        run: |
+          infracost diff --path=${{ env.TF_ROOT }} \
+                         --compare-to=/tmp/infracost-base.json \
+                         --format=json \
+                         --out-file=/tmp/infracost-diff.json
+
+      - name: Post Cost Comment to PR
+        uses: infracost/actions/comment@v3
+        with:
+          path: /tmp/infracost-diff.json
+          behavior: update
