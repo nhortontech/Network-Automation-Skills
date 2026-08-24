@@ -1,5 +1,7 @@
 # Network-Automation-Skills
-A dedicated repository to practice Networking and Networking Automation related skills
+A dedicated repository to practice Networking and Networking Automation related skills.
+
+This repository contains files that that automate various tasks related to my private Azure Tenancy for the sake of production-level operational experience with the integration of Git & Continuous Integration/Deployment Pipelines to Cloud Networks & Infrastructure. Some files contain scripts that can be ran on both restricted and private, unrestricted, networks as my troubleshooting was often done in both environments. This will be made obvious in the file.
 
 # backup_router.py
 
